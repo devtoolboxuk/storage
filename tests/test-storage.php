@@ -11,14 +11,29 @@ class StorageTest extends TestCase
         parent::__construct($name, $data, $dataName);
     }
 
-    public function testRuntimeExceptionOnGetNonExistantAdapter()
+
+    public function testRunTimeException()
     {
+
+        if (version_compare(PHP_VERSION, '5.6.0') >= 0) {
+            $this->runtimeExceptionOnGetNonExistantAdapter();
+            $this->runtimeExceptionOnGetNoAdapter();
+        } else {
+            $this->markTestSkipped('PHP version not supported');
+        }
+    }
+
+
+    private function runtimeExceptionOnGetNonExistantAdapter()
+    {
+
         $dbOptions = $this->getOptions();
         $dbOptions['database']['adapter'] = 'testAdapter';
         $storage = new StorageManager();
         $this->expectException(\RuntimeException::class);
         $storage->getAdapter();
     }
+
 
     private function getOptions()
     {
@@ -30,7 +45,7 @@ class StorageTest extends TestCase
         return $options;
     }
 
-    public function testRuntimeExceptionOnGetNoAdapter()
+    private function runtimeExceptionOnGetNoAdapter()
     {
         $storage = new StorageManager();
         $this->expectException(\RuntimeException::class);
