@@ -9,22 +9,24 @@ class StorageTest extends TestCase
     function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
+        echo "\nDev-Toolbox - PHP Version: " . PHP_VERSION . "\n";
     }
 
 
     public function testRunTimeException()
     {
 
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0) {
-            $this->runtimeExceptionOnGetNonExistantAdapter();
+        if (version_compare(phpversion(), "5.6.0", ">=")) {
+            $this->runtimeExceptionOnGetNonExistentAdapter();
             $this->runtimeExceptionOnGetNoAdapter();
         } else {
+            echo "\n Skip due to PHP Version";
             $this->markTestSkipped('PHP version not supported');
         }
     }
 
 
-    private function runtimeExceptionOnGetNonExistantAdapter()
+    private function runtimeExceptionOnGetNonExistentAdapter()
     {
 
         $dbOptions = $this->getOptions();
