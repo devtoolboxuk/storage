@@ -8,6 +8,6 @@ class DoctrineAdapter extends AbstractAdapter implements AdapterInterface
 {
     function connection()
     {
-        return DriverManager::getConnection($this->dbOptions);
+        return DriverManager::getConnection($this->getDbOptions());
     }
 }

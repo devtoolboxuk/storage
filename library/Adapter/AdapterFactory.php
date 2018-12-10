@@ -7,7 +7,7 @@ class AdapterFactory
     protected static $instance;
 
     protected $adapters = [
-        'mysql' => __NAMESPACE__ . '\Adapter\DoctrineAdapter'
+        'mysql' => 'devtoolboxuk\storages\Adapter\DoctrineAdapter'
     ];
 
     public static function instance()
