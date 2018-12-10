@@ -11,7 +11,7 @@ class StorageManager
 
     function __construct($options = [])
     {
-        if (isset($options['adpater'])) {
+        if (isset($options['adapter'])) {
             $this->adapterName = $options['adapter'];
             $factory = AdapterFactory::instance();
             $this->adapter = $factory->getAdapter($options['adapter'], $options);

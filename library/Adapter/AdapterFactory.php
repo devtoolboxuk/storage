@@ -21,10 +21,10 @@ class AdapterFactory
 
     public function registerAdapter($name, $class)
     {
-        if (!is_subclass_of($class, __NAMESPACE__ . '\Adapter\AdapterInterface')) {
+        if (!is_subclass_of($class, 'devtoolboxuk\storage\AdapterInterface')) {
             throw new \RuntimeException(sprintf(
-                'Adapter class "%s" must implement %s\\Adapter\\AdapterInterface',
-                $class, __NAMESPACE__
+                'Adapter class "%s" must implement devtoolboxuk\\storage\\Adapter\\AdapterInterface',
+                $class
             ));
         }
         $this->adapters[$name] = $class;

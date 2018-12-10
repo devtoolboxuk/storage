@@ -26,7 +26,7 @@ abstract class AbstractAdapter implements AdapterInterface
         $this->dbOptions = $options;
         return $this;
     }
-    
+
     public function getDbOption($name)
     {
         if (!$this->hasDbOption($name)) {
@@ -38,7 +38,7 @@ abstract class AbstractAdapter implements AdapterInterface
 
     public function hasDbOption($name)
     {
-        return isset($this->options[$name]);
+        return isset($this->dbOptions[$name]);
     }
 
 }
