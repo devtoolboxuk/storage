@@ -12,9 +12,40 @@ class StorageTest extends TestCase
     }
 
 
-    public function testSetup()
+    public function testRunTimeException()
     {
-        $this->markTestSkipped('to action');
+        $this->runtimeExceptionOnGetNonExistentAdapter();
+        $this->runtimeExceptionOnGetNoAdapter();
     }
+
+
+    private function runtimeExceptionOnGetNonExistentAdapter()
+    {
+
+        $dbOptions = $this->getOptions();
+        $dbOptions['database']['adapter'] = 'testAdapter';
+        $storage = new StorageManager();
+        $this->expectException(\RuntimeException::class);
+        $storage->getAdapter();
+    }
+
+
+    private function getOptions()
+    {
+        $options = [
+            'database' => [
+                'adapter' => 'mysql'
+            ],
+        ];
+        return $options;
+    }
+
+    private function runtimeExceptionOnGetNoAdapter()
+    {
+        $storage = new StorageManager();
+        $this->expectException(\RuntimeException::class);
+        $storage->getAdapter();
+    }
+
 
 }
