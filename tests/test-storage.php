@@ -12,12 +12,28 @@ class StorageTest extends TestCase
     }
 
 
+    private function getOptions()
+    {
+        $options = [
+            'adapter' => 'mysql',
+            'config' => [
+                'driver' => 'mysqli',
+                'host' => '',
+                'dbname' => '',
+                'user' => '',
+                'password' => '',
+                'port' => '3306',
+                'charset' => 'utf8'
+            ]
+        ];
+        return $options;
+    }
+
     public function testRunTimeException()
     {
         $this->runtimeExceptionOnGetNonExistentAdapter();
         $this->runtimeExceptionOnGetNoAdapter();
     }
-
 
     private function runtimeExceptionOnGetNonExistentAdapter()
     {
@@ -25,19 +41,9 @@ class StorageTest extends TestCase
         $dbOptions = $this->getOptions();
         $dbOptions['database']['adapter'] = 'testAdapter';
         $storage = new StorageManager();
+
         $this->expectException(\RuntimeException::class);
         $storage->getAdapter();
-    }
-
-
-    private function getOptions()
-    {
-        $options = [
-            'database' => [
-                'adapter' => 'mysql'
-            ],
-        ];
-        return $options;
     }
 
     private function runtimeExceptionOnGetNoAdapter()

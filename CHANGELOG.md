@@ -2,9 +2,7 @@
 
 All notable changes to this project will be documented in this file. 
 
-<a name="1.0.0"></a>
-# [1.0.0](https://github.com/devtoolboxuk/aegis) (2018-11-24)
+<a name="1.0.3"></a>
+# [1.0.3](https://github.com/devtoolboxuk/storage/releases/tag/1.0.3) (2019-03-14)
 
-### Bug Fixes
-
-### Features
+Changed connection details, and updated readme file.

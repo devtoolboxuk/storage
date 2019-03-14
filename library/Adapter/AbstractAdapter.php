@@ -8,37 +8,37 @@ namespace devtoolboxuk\storage\Adapter;
 abstract class AbstractAdapter implements AdapterInterface
 {
 
-    protected $dbOptions = [];
+    protected $adapterOptions = [];
     protected $connection;
 
     public function __construct(array $options)
     {
-        $this->setDbOptions($options);
+        $this->setAdapterOptions($options);
     }
 
-    public function getDbOptions()
+    public function getAdapterOptions()
     {
-        return $this->dbOptions;
+        return $this->adapterOptions;
     }
 
-    public function setDbOptions(array $options)
+    public function setAdapterOptions(array $options)
     {
-        $this->dbOptions = $options;
+        $this->adapterOptions = $options['config'];
         return $this;
     }
 
-    public function getDbOption($name)
+    public function getAdapterOption($name)
     {
-        if (!$this->hasDbOption($name)) {
+        if (!$this->hasAdapterOption($name)) {
             return null;
         }
 
-        return $this->dbOptions[$name];
+        return $this->adapterOptions[$name];
     }
 
-    public function hasDbOption($name)
+    public function hasAdapterOption($name)
     {
-        return isset($this->dbOptions[$name]);
+        return isset($this->adapterOptions[$name]);
     }
 
 }
