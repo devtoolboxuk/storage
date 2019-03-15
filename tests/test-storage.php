@@ -16,15 +16,13 @@ class StorageTest extends TestCase
     {
         $options = [
             'adapter' => 'mysql',
-            'config' => [
-                'driver' => 'mysqli',
-                'host' => '',
-                'dbname' => '',
-                'user' => '',
-                'password' => '',
-                'port' => '3306',
-                'charset' => 'utf8'
-            ]
+            'driver' => 'mysqli',
+            'host' => '',
+            'dbname' => '',
+            'user' => '',
+            'password' => '',
+            'port' => '3306',
+            'charset' => 'utf8'
         ];
         return $options;
     }

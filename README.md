@@ -40,15 +40,13 @@ use devtoolboxuk/storage;
 
 $dbOptions = [
     'adapter' => 'mysql',
-    'config' => [
-        'driver' => 'mysqli',
-        'host' => '',
-        'dbname' => '',
-        'user' => '',
-        'password' => '',
-        'port' => '3306',
-        'charset' => 'utf8'
-    ]
+    'driver' => 'mysqli',
+    'host' => '',
+    'dbname' => '',
+    'user' => '',
+    'password' => '',
+    'port' => '3306',
+    'charset' => 'utf8
 ];
 $storage = new StorageManager($dbOptions);
 $conn = $storage->getAdapter()->connection();

@@ -23,7 +23,7 @@ abstract class AbstractAdapter implements AdapterInterface
 
     public function setAdapterOptions(array $options)
     {
-        $this->adapterOptions = $options['config'];
+        $this->adapterOptions = $options;
         return $this;
     }
 
